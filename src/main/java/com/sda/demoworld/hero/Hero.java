@@ -1,34 +1,46 @@
 package com.sda.demoworld.hero;
 
 import java.time.LocalDateTime;
-import java.time.ZonedDateTime;
 
 public class Hero {
 
     private String id;
     private String Name;
 
-    private int level;
-    private long experience;
+    private String owner = "";
 
-    private int maxHealth;
-    private int currentHealth;
-    private int maxResource;
-    private int currentResource;
+    private int level = 1;
+    private long experience = 0;
 
-    private int strength;
-    private int intellect;
-    private int dexterity;
+    private int strength = 5;
+    private int intellect = 5;
+    private int dexterity = 5;
 
-    private String helmet;
-    private String armor;
-    private String weapon;
+    private String helmet = "N/A";
+    private String armor = "N/A";
+    private String weapon = "N/A";
 
-    private boolean isTraveling;
-    private boolean isRecovering;
+    private boolean isTraveling = false;
+    private boolean isRecovering = false;
 
     private String location;
-    private LocalDateTime traveltime;
+    private LocalDateTime travelTime;
+
+    public String getOwner() {
+        return owner;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    public LocalDateTime getTravelTime() {
+        return travelTime;
+    }
+
+    public void setTravelTime(LocalDateTime travelTime) {
+        this.travelTime = travelTime;
+    }
 
     public String getId() {
         return id;
@@ -60,38 +72,6 @@ public class Hero {
 
     public void setExperience(long experience) {
         this.experience = experience;
-    }
-
-    public int getMaxHealth() {
-        return maxHealth;
-    }
-
-    public void setMaxHealth(int maxHealth) {
-        this.maxHealth = maxHealth;
-    }
-
-    public int getCurrentHealth() {
-        return currentHealth;
-    }
-
-    public void setCurrentHealth(int currentHealth) {
-        this.currentHealth = currentHealth;
-    }
-
-    public int getMaxResource() {
-        return maxResource;
-    }
-
-    public void setMaxResource(int maxResource) {
-        this.maxResource = maxResource;
-    }
-
-    public int getCurrentResource() {
-        return currentResource;
-    }
-
-    public void setCurrentResource(int currentResource) {
-        this.currentResource = currentResource;
     }
 
     public int getStrength() {
@@ -167,10 +147,13 @@ public class Hero {
     }
 
     public LocalDateTime getTraveltime() {
-        return traveltime;
+        return travelTime;
     }
 
-    public void setTraveltime(LocalDateTime traveltime) {
-        this.traveltime = traveltime;
+    public void setTraveltime(LocalDateTime travelTime) {
+        this.travelTime = travelTime;
     }
+
+
+
 }

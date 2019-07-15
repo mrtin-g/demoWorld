@@ -14,6 +14,7 @@ public class User {
     private String username;
     private String password;
     private int osmiumCurrency;
+    private int heroPrice;
 
     private ArrayList<String>roles;
 
@@ -72,5 +73,13 @@ public class User {
 
     public void setOsmiumCurrency(int osmium) {
         this.osmiumCurrency = osmium;
+    }
+
+    public int getHeroPrice() {
+        return heroPrice;
+    }
+
+    public void setHeroPrice(int heroPrice) {
+        this.heroPrice = heroPrice;
     }
 }

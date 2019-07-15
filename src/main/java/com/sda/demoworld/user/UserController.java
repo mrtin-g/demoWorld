@@ -16,6 +16,7 @@ public class UserController {
 
     //TODO create thymeleaf warning for registration failed instead of return view
     //TODO show login view with register success when register success
+    //TODO move functionality to UserCreationService
 
     @PostMapping("/register")
     public String RegisterUser
@@ -31,10 +32,15 @@ public class UserController {
         roles.add("ROLE_USER");
         user.setOsmiumCurrency(100);
 
+
+        ArrayList<String> heroes = new ArrayList<>();
+        user.setHeroes(heroes);
+        heroes.add("");
+
         if (!userService.userExists(user)){
 
             this.userService.saveUser(user);
-            return "register";
+            return "login";
 
         }
         else return "registerFailed";

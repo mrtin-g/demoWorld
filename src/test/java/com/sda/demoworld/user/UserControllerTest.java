@@ -8,9 +8,15 @@ public class UserControllerTest {
 
     @Test
     public void testRegisterUser() {
+
+
+
     }
 
     @Test
     public void testRegisterView() {
+
+
+
     }
 }
