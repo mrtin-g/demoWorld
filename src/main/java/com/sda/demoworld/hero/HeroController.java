@@ -4,12 +4,11 @@ import com.sda.demoworld.hero.classes.HeroClassTypes;
 import com.sda.demoworld.user.User;
 import com.sda.demoworld.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.util.ArrayList;
-import java.util.List;
 
 @Controller
 public class HeroController {
@@ -25,28 +24,26 @@ public class HeroController {
 
     @PostMapping("/createHero")
     public String createHero
-            (@ModelAttribute("name")String name, @ModelAttribute("heroClass")int heroClass, User user){
+            (@ModelAttribute("name") String name, @ModelAttribute("heroClass") HeroClassTypes heroClass) {
 
+        User user =
+                userService
+                        .getUserRepository()
+                        .findByUsername(SecurityContextHolder.getContext()
+                                .getAuthentication().getName());
 
-        if (this.creationService.canAffordHero(user)){
+        if (this.creationService.canAffordHero(user)) {
 
-            Hero hero = creationService.createHero(name,heroClass,user);
+            Hero hero = creationService.createHero(name, heroClass, user);
 
             heroService.saveHero(hero);
-            heroService.setHeroOwner(hero,user);
+            heroService.setHeroOwner(hero, user);
 
-            System.out.println(hero.getOwner());
-            System.out.println(user.getHeroes().get(0));
-
-//            userService.saveUser(user);
+            userService.saveUser(user);
 
             return "main";
-        }
-        else return "register";
+        } else return "register";
     }
-
-
-
 
 
 }

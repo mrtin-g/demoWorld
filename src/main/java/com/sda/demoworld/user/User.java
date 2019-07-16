@@ -1,6 +1,7 @@
 package com.sda.demoworld.user;
 
 
+import com.sda.demoworld.hero.Hero;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -18,13 +19,13 @@ public class User {
 
     private ArrayList<String>roles;
 
-    private ArrayList<String>heroes;
+    private ArrayList<Hero>heroes;
 
-    public ArrayList<String> getHeroes() {
+    public ArrayList<Hero> getHeroes() {
         return heroes;
     }
 
-    public void setHeroes(ArrayList<String> heroes) {
+    public void setHeroes(ArrayList<Hero> heroes) {
         this.heroes = heroes;
     }
 

@@ -12,7 +12,11 @@ public class UserService {
     private BCryptPasswordEncoder encoder;
 
     @Autowired
-    private UserRepository userRepository;
+    protected UserRepository userRepository;
+
+    public UserRepository getUserRepository() {
+        return userRepository;
+    }
 
     public boolean userExists(User user) {
         User usr = this.userRepository
@@ -21,9 +25,9 @@ public class UserService {
         return res;
     }
 
-    public void saveUser(User user){
+    public void saveUser(User user) {
 
-        if(!userExists(user)) {
+        if (!userExists(user)) {
             String str = encoder.encode(user.getPassword());
             user.setPassword(str);
             this.userRepository.save(user);
@@ -31,17 +35,8 @@ public class UserService {
 
     }
 
-    public void deleteUser (User user){
+    public void deleteUser(User user) {
 
         //TODO do this
     }
-
-//    public void updateUser(User user){
-//
-//
-//    }
-
-
-
-
 }

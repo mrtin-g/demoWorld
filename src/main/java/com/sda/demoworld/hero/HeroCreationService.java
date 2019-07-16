@@ -2,7 +2,6 @@ package com.sda.demoworld.hero;
 
 import com.sda.demoworld.hero.classes.*;
 import com.sda.demoworld.user.User;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -15,30 +14,28 @@ public class HeroCreationService {
     }
 
     public Hero createHero
-            (String name, int heroClass, User user) {
-
+            (String name, HeroClassTypes heroClass, User user) {
 
         switch (heroClass) {
-            case 2:
+            case WIZARD:
                 this.hero = new WizardHero();
                 this.hero.setName(name);
                 this.hero.setOwner(user.getUsername());
                 return this.hero;
 
-
-            case 1:
+            case ROGUE:
                 this.hero = new RogueHero();
                 hero.setName(name);
                 hero.setOwner(user.getUsername());
                 return hero;
 
-            case 3:
+            case WARRIOR:
                 this.hero = new WarriorHero();
                 hero.setName(name);
                 hero.setOwner(user.getUsername());
                 return hero;
 
-            case 4:
+            case SORCERESS:
                 this.hero = new SorceressHero();
                 hero.setName(name);
                 hero.setOwner(user.getUsername());
@@ -49,9 +46,6 @@ public class HeroCreationService {
 
     public void saveHero(){
 
-
-
     }
-
 
 }

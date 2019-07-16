@@ -1,7 +1,9 @@
 package com.sda.demoworld.user;
 
+import com.sda.demoworld.hero.Hero;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,9 +35,8 @@ public class UserController {
         user.setOsmiumCurrency(100);
 
 
-        ArrayList<String> heroes = new ArrayList<>();
+        ArrayList<Hero> heroes = new ArrayList<>();
         user.setHeroes(heroes);
-        heroes.add("");
 
         if (!userService.userExists(user)){
 
@@ -47,8 +48,8 @@ public class UserController {
     }
 
     @GetMapping("/register")
-    public String registerView(){
-
+    public String registerView(Model model){
+        model.addAttribute("a",null);
         return "register";
     }
 

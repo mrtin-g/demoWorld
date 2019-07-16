@@ -13,11 +13,11 @@
     <div class="heroCreateContent">
         <form action="/createHero" method="post">
             Name: <input type="text" name="name">
-            <select>
-<!--                <option th:each="state : ${T(com.sda.demoworld.hero.classes.HeroClassTypes).values()}"-->
-<!--                        th:value="${state}"-->
-<!--                        th:text="${state}">-->
-<!--                </option>-->
+            <select name="heroClass">
+                <option th:each="state : ${T(com.sda.demoworld.hero.classes.HeroClassTypes).values()}"
+                        th:value="${state}"
+                        th:text="${state}">
+                </option>
             </select>
             <button type="submit">Create</button>
         </form>
