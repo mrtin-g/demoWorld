@@ -1,30 +1,37 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:include="fragments/head.html :: header">
     <meta charset="UTF-8">
     <title>demoWorld</title>
+    <style>
+        .w3-button{
+            transform: rotate(-90deg);
+            -webkit-transform: rotate(-90deg);
+        }
+        #heroSelectBtnText{
+            transform: rotate(-90deg);
+            writing-mode: vertical-rl;
+        }
+    </style>
 </head>
 <body>
+<th:block th:insert="fragments/head.html :: navBar"></th:block>
+
+<div class="userInfo">
+<p th:text="'Welcome '+${user.getUsername()}+'!'"></p>
+    <p th:text="'Osmium owned: '+${user.getOsmiumCurrency()}"></p>
+</div>
+
+<div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
+    <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
+    <th:block th:include="heroesList.html :: heroList(heroes=${heroes})"></th:block>
+</div>
+
+<!--<div class="w3-teal">-->
+    <button class="w3-button w3-teal w3-xlarge" onclick="w3_open()" ><p id="heroSelectBtnText">Select Hero</p></button>
+<!--</div>-->
 
 <h1>This is main view, logged in</h1>
-
-<div class="temp">
-    <h3>Hero Creation</h3>
-    <div class="heroCreateContent">
-        <form action="/createHero" method="post">
-            Name: <input type="text" name="name">
-            <select name="heroClass">
-                <option th:each="state : ${T(com.sda.demoworld.hero.classes.HeroClassTypes).values()}"
-                        th:value="${state}"
-                        th:text="${state}">
-                </option>
-            </select>
-            <button type="submit">Create</button>
-        </form>
-
-    </div>
-
-</div>
 
 </body>
 </html>

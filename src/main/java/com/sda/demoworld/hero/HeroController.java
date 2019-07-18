@@ -6,6 +6,8 @@ import com.sda.demoworld.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -41,8 +43,20 @@ public class HeroController {
 
             userService.saveUser(user);
 
-            return "main";
+            return "redirect:/";
         } else return "register";
+    }
+
+    @GetMapping("/createHero")
+    public String createHeroView(Model model){
+
+        model.addAttribute("user",userService
+                .getUserRepository()
+                .findByUsername(SecurityContextHolder
+                        .getContext()
+                        .getAuthentication().getName()));
+
+        return "createHero";
     }
 
 

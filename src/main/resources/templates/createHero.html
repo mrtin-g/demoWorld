@@ -1,10 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments/head.html :: header">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Create Hero</title>
+    <th:block th:include="fragments/head.html :: header"></th:block>
 </head>
 <body>
+<th:block th:insert="fragments/head.html :: navBar"></th:block>
+<div class="userInfo">
+    <p th:text="'Welcome '+${user.getUsername()}+'!'"></p>
+    <p th:text="'Osmium owned: '+${user.getOsmiumCurrency()}"></p>
+</div>
+<h3>Hero Creation</h3>
+<div class="heroCreateContent">
+    <p th:text="'Hero Cost: '+${user.getHeroPrice()}"></p>
+    <form action="/createHero" method="post">
+        Name: <input type="text" name="name">
+        <select name="heroClass">
+            <option th:each="state : ${T(com.sda.demoworld.hero.classes.HeroClassTypes).values()}"
+                    th:value="${state}"
+                    th:text="${state}">
+            </option>
+        </select>
+        <button type="submit">Create</button>
+    </form>
+
+</div>
 
 </body>
 </html>

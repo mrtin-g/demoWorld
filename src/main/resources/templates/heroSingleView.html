@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<table>
+    <thead>
+    <tr>
+        <td th:text="${hero.getHeroClass().getType()}+' '+${hero.getName()}+' Level: '+${hero.getLevel()}"></td>
+    </tr>
+    </thead>
+    <tr><td><img th:src="'/'+${hero.getHeroClass().toString()}+'.gif'"></td></tr>
+    <tr><td colspan="2">Stats</td></tr>
+    <tr><td th:text="'Strength: '"></td><td th:text="${hero.getStrength()}"></td></tr>
+    <tr><td th:text="'Intellect: '"></td><td th:text="${hero.getIntellect()}"></td></tr>
+    <tr><td th:text="'Dexterity: '"></td><td th:text="${hero.getDexterity()}"></td></tr>
+</table>
+
+</body>
+</html>

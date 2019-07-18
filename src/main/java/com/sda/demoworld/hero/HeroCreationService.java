@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class HeroCreationService {
 
-    Hero hero;
+
 
     public boolean canAffordHero(User user) {
         return user.getOsmiumCurrency() - user.getHeroPrice() >= 0;
@@ -16,28 +16,37 @@ public class HeroCreationService {
     public Hero createHero
             (String name, HeroClassTypes heroClass, User user) {
 
+        if(name == null || heroClass == null || user == null){
+            return null;
+        }
+
+        Hero hero = null;
         switch (heroClass) {
             case WIZARD:
-                this.hero = new WizardHero();
-                this.hero.setName(name);
-                this.hero.setOwner(user.getUsername());
-                return this.hero;
+                hero = new WizardHero();
+                hero.setName(name);
+                hero.setHeroClass(heroClass);
+                hero.setOwner(user.getUsername());
+                return hero;
 
             case ROGUE:
-                this.hero = new RogueHero();
+                hero = new RogueHero();
                 hero.setName(name);
+                hero.setHeroClass(HeroClassTypes.ROGUE);
                 hero.setOwner(user.getUsername());
                 return hero;
 
             case WARRIOR:
-                this.hero = new WarriorHero();
+                hero = new WarriorHero();
                 hero.setName(name);
+                hero.setHeroClass(HeroClassTypes.WARRIOR);
                 hero.setOwner(user.getUsername());
                 return hero;
 
             case SORCERESS:
-                this.hero = new SorceressHero();
+                hero = new SorceressHero();
                 hero.setName(name);
+                hero.setHeroClass(HeroClassTypes.SORCERESS);
                 hero.setOwner(user.getUsername());
                 return hero;
         }

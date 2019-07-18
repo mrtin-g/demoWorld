@@ -15,7 +15,7 @@ public class HeroService {
     private UserService userService;
 
     @Autowired
-    private HeroRepository heroRepository;
+    public HeroRepository heroRepository;
 
     public boolean heroExists(Hero hero) {
 
@@ -51,6 +51,13 @@ public class HeroService {
 
         }
 
+    }
+
+    public Hero findHeroById(String heroId){
+
+         Hero hero = heroRepository.findByid(heroId);
+
+        return hero;
     }
 
 

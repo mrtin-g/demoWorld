@@ -1,5 +1,7 @@
 package com.sda.demoworld.hero;
 
+import com.sda.demoworld.hero.classes.HeroClassTypes;
+
 import java.time.LocalDateTime;
 
 public class Hero {
@@ -9,6 +11,7 @@ public class Hero {
 
     private String owner = "";
 
+    private HeroClassTypes heroClass;
     private int level = 1;
     private long experience = 0;
 
@@ -56,6 +59,14 @@ public class Hero {
 
     public void setName(String name) {
         Name = name;
+    }
+
+    public HeroClassTypes getHeroClass() {
+        return heroClass;
+    }
+
+    public void setHeroClass(HeroClassTypes heroClass) {
+        this.heroClass = heroClass;
     }
 
     public int getLevel() {
