@@ -1,8 +1,10 @@
 package com.sda.demoworld.hero;
 
 import com.sda.demoworld.hero.classes.HeroClassTypes;
+import com.sda.demoworld.item.Item;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class Hero {
 
@@ -19,15 +21,20 @@ public class Hero {
     private int intellect = 5;
     private int dexterity = 5;
 
-    private String helmet = "N/A";
-    private String armor = "N/A";
-    private String weapon = "N/A";
+    private Item helmet;
+    private Item armor;
+    private Item weapon;
+    private List<Item> inventory;
 
     private boolean isTraveling = false;
     private boolean isRecovering = false;
 
     private String location;
     private LocalDateTime travelTime;
+
+    public Hero() {
+        this.heroClass = HeroClassTypes.ROGUE;
+    }
 
     public String getOwner() {
         return owner;
@@ -109,27 +116,27 @@ public class Hero {
         this.dexterity = dexterity;
     }
 
-    public String getHelmet() {
+    public Item getHelmet() {
         return helmet;
     }
 
-    public void setHelmet(String helmet) {
+    public void setHelmet(Item helmet) {
         this.helmet = helmet;
     }
 
-    public String getArmor() {
+    public Item getArmor() {
         return armor;
     }
 
-    public void setArmor(String armor) {
+    public void setArmor(Item armor) {
         this.armor = armor;
     }
 
-    public String getWeapon() {
+    public Item getWeapon() {
         return weapon;
     }
 
-    public void setWeapon(String weapon) {
+    public void setWeapon(Item weapon) {
         this.weapon = weapon;
     }
 

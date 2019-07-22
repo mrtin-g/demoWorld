@@ -12,17 +12,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class HeroViewController {
 
-    @Autowired
-   private HeroService heroService;
-
-    @GetMapping("/heroView/{heroId}")
-    public String viewHero(@PathVariable(value = "heroId")String heroId, Model model){
-
-        model.addAttribute("hero",heroService.findHeroById(heroId));
-        //find hero by id
-
-
-        return "heroSingleView";
-    }
+//    @Autowired
+//   private HeroService heroService;
+//
+//    @GetMapping("/heroView/{heroId}")
+//    public String viewHero(@PathVariable(value = "heroId")String heroId, Model model){
+//
+//        model.addAttribute("hero",heroService.findHeroById(heroId));
+//        //find hero by id
+//
+//
+//        return "heroSingleView";
+//    }
 
 }

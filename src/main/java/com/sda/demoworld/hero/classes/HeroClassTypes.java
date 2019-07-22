@@ -15,9 +15,4 @@ public enum HeroClassTypes {
     public String getType() {
         return type;
     }
-
-//    @Override
-//    public String toString() {
-//        return type;
-//    }
 }

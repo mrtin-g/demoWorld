@@ -33,5 +33,16 @@
 
 <h1>This is main view, logged in</h1>
 
+<div class="singleHeroContainer">
+    <th:block th:include="heroSingleView.html :: singleHero (hero = ${hero})"></th:block>
+</div>
+<div class="heroMenuContainer">
+    <table>
+        <tr><td class="hMenuBtn"><a href="/inventory/">Inventory</a> </td></tr>
+        <tr><td class="hMenuBtn"><a href="#">Reputation</a> </td></tr>
+        <tr><td class="hMenuBtn"><a href="#">Map</a> </td></tr>
+    </table>
+</div>
+
 </body>
 </html>
