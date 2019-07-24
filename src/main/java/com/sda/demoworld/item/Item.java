@@ -1,5 +1,8 @@
 package com.sda.demoworld.item;
 
+import com.sda.demoworld.item.builder.ItemBuilder;
+import com.sda.demoworld.item.builder.ItemBuilderImpl;
+
 public class Item {
 
     private String id;
@@ -20,20 +23,29 @@ public class Item {
     public Item(){}
 
     public Item(
-            String name,
             ItemTypes type,
+            String name,
             int strengthBonus,
             int intellectBonus,
             int dexterityBonus,
-            int attackBonus){
+            int attackBonus,
+            int defenseBonus,
+            int healthBonus,
+            int resourceBonus){
 
-        this.name = name;
         this.type = type;
+        this.name = name;
         this.strengthBonus = strengthBonus;
         this.intellectBonus = intellectBonus;
         this.dexterityBonus = dexterityBonus;
         this.attackBonus = attackBonus;
+        this.defenseBonus = defenseBonus;
+        this.healthBonus = healthBonus;
+        this.resourceBonus = resourceBonus;
 
+    }
+
+    public static ItemBuilder build(){return new ItemBuilderImpl();
     }
 
     public String getId() {
@@ -122,5 +134,9 @@ public class Item {
 
     public void setResourceBonus(int resourceBonus) {
         this.resourceBonus = resourceBonus;
+    }
+
+    public void createItem(){
+
     }
 }

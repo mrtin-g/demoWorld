@@ -14,7 +14,7 @@
     </tr>
     </thead>
     <tr><td id="heroPortraitCell"><img id="heroPortrait" th:src=
-            "'/'+${hero.getHeroClass().toString()}+''+${hero.getLevel()}+'.gif'"></td></tr>
+            "'../images/'+${hero.getHeroClass().toString()}+''+${hero.getLevel()}+'.gif'"></td></tr>
     <tr><td colspan="2">Stats</td></tr>
     <tr><td th:text="'Strength: '"></td><td th:text="${hero.getStrength()}"></td></tr>
     <tr><td th:text="'Intellect: '"></td><td th:text="${hero.getIntellect()}"></td></tr>

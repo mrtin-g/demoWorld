@@ -3,8 +3,10 @@
     width: 250px;
 }
 .singleHeroContainer{
-    background-image: url("/static/images/contentBckg.png");
-    background-size: cover;
+    background-image: url("../images/contentBckg.png");
+    /*background-size: contain;*/
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
     position: absolute;
     left: 15%;
     top: 8%;
@@ -13,8 +15,9 @@
 
 }
 .singleHeroView{
-    background-image: url("/static/images/contentBckg.png");
-    background-size: cover;
+    background-image: url("../images/contentBckg.png");
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 .hMenuBtn{
     height: 60px;
@@ -26,14 +29,19 @@
     position: absolute;
     left: 39%;
     top: 8%;
-    border: 30px solid;
-    border-image: url('/static/images/brdrSample.png') 25% repeat;
+    /*border: 30px solid;*/
+    /*border-image: url('../images/brdrSample.png') 25% repeat;*/
+    background-image: url("../images/contentBckg.png");
+    background-size: contain;
 }
 .inventoryContent{
     position: absolute;
     left: 50%;
     top: 8%;
     margin: 10px;
-    border: 30px solid;
-    border-image: url("/static/images/brdrSample.png") 30% repeat;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-image: url("../images/contentBckg.png");
+    /*border: 30px solid;*/
+    /*border-image: url("../images/brdrSample.png") 30% repeat;*/
 }
