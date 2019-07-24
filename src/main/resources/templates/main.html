@@ -26,7 +26,6 @@
     <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
     <th:block th:include="heroesList.html :: heroList(heroes=${heroes})"></th:block>
 </div>
-
 <!--<div class="w3-teal">-->
     <button class="w3-button w3-teal w3-xlarge" onclick="w3_open()" ><p id="heroSelectBtnText">Select Hero</p></button>
 <!--</div>-->
@@ -38,10 +37,13 @@
 </div>
 <div class="heroMenuContainer">
     <table>
-        <tr><td class="hMenuBtn"><a href="/inventory/">Inventory</a> </td></tr>
+        <tr><td class="hMenuBtn"><a href="#">Inventory</a> </td></tr>
         <tr><td class="hMenuBtn"><a href="#">Reputation</a> </td></tr>
         <tr><td class="hMenuBtn"><a href="#">Map</a> </td></tr>
     </table>
+</div>
+<div class="inventoryContent">
+    <th:block th:include="inventory.html :: inventory (inventory = ${inventory})"></th:block>
 </div>
 
 </body>

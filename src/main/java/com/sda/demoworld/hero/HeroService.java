@@ -1,5 +1,6 @@
 package com.sda.demoworld.hero;
 
+import com.sda.demoworld.item.Item;
 import com.sda.demoworld.user.User;
 import com.sda.demoworld.user.UserRepository;
 import com.sda.demoworld.user.UserService;
@@ -58,6 +59,18 @@ public class HeroService {
          Hero hero = heroRepository.findByid(heroId);
 
         return hero;
+    }
+
+    public void addItemToInventory(Hero hero, Item item){
+
+        if (hero.getInventory() == null){
+
+            hero.setInventory(new ArrayList<>());
+
+        }
+
+        hero.getInventory().add(item);
+        heroRepository.save(hero);
     }
 
 

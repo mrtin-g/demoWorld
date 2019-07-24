@@ -31,7 +31,6 @@ public class MainViewController {
         return "redirect:/";
     }
 
-
     @GetMapping("/")
     public String mainViewAll(Model model) {
 
@@ -42,6 +41,7 @@ public class MainViewController {
         model.addAttribute("heroes", user.getHeroes());
         model.addAttribute("user", user);
         model.addAttribute("hero", new Hero());
+        model.addAttribute("inventory",new Hero().getInventory());
 
         return "main";
     }
@@ -57,21 +57,7 @@ public class MainViewController {
         model.addAttribute("heroes", user.getHeroes());
         model.addAttribute("user", user);
         model.addAttribute("hero", heroService.findHeroById(heroId));
-
-        return "main";
-    }
-
-    @GetMapping("/inventory/{heroId}")
-    public String heroInventory(@PathVariable (value = "heroId")String heroId, Model model){
-
-        User user = userService.getUserRepository()
-                .findByUsername(SecurityContextHolder.getContext()
-                        .getAuthentication().getName());
-
-        model.addAttribute("heroes", user.getHeroes());
-        model.addAttribute("user", user);
-        model.addAttribute("hero", heroService.findHeroById(heroId));
-        model.addAttribute("inventory",heroService.findHeroById(heroId));
+        model.addAttribute("inventory",heroService.findHeroById(heroId).getInventory());
 
         return "main";
     }

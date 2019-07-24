@@ -2,8 +2,10 @@ package com.sda.demoworld.hero;
 
 import com.sda.demoworld.hero.classes.HeroClassTypes;
 import com.sda.demoworld.item.Item;
+import com.sda.demoworld.stats.HeroStats;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Hero {
@@ -17,14 +19,13 @@ public class Hero {
     private int level = 1;
     private long experience = 0;
 
-    private int strength = 5;
-    private int intellect = 5;
-    private int dexterity = 5;
+    private HeroStats stats = new HeroStats(5,5,5);
 
     private Item helmet;
     private Item armor;
     private Item weapon;
     private List<Item> inventory;
+    private List<Item> equiped;
 
     private boolean isTraveling = false;
     private boolean isRecovering = false;
@@ -33,7 +34,8 @@ public class Hero {
     private LocalDateTime travelTime;
 
     public Hero() {
-        this.heroClass = HeroClassTypes.ROGUE;
+        this.inventory = new ArrayList<>();
+        this.heroClass = HeroClassTypes.NOHEROSELECTED;
     }
 
     public String getOwner() {
@@ -93,27 +95,45 @@ public class Hero {
     }
 
     public int getStrength() {
-        return strength;
-    }
 
-    public void setStrength(int strength) {
-        this.strength = strength;
+        int currentStrength = stats.getStrength();
+
+        if(armor != null)
+            currentStrength += armor.getStrengthBonus();
+        else if (helmet != null)
+            currentStrength += helmet.getStrengthBonus();
+        else if (weapon != null)
+            currentStrength += weapon.getStrengthBonus();
+
+        return currentStrength;
     }
 
     public int getIntellect() {
-        return intellect;
-    }
 
-    public void setIntellect(int intellect) {
-        this.intellect = intellect;
+        int currentIntellect = stats.getIntellect();
+
+        if(armor != null)
+            currentIntellect += armor.getIntellectBonus();
+        else if (helmet != null)
+            currentIntellect += helmet.getIntellectBonus();
+        else if (weapon != null)
+            currentIntellect += weapon.getIntellectBonus();
+
+        return currentIntellect;
     }
 
     public int getDexterity() {
-        return dexterity;
-    }
 
-    public void setDexterity(int dexterity) {
-        this.dexterity = dexterity;
+       int currentDexterity = stats.getDexterity();
+
+        if(armor != null)
+            currentDexterity += armor.getDexterityBonus();
+        else if (helmet != null)
+            currentDexterity += helmet.getDexterityBonus();
+        else if (weapon != null)
+            currentDexterity += weapon.getDexterityBonus();
+
+        return currentDexterity;
     }
 
     public Item getHelmet() {
@@ -138,6 +158,14 @@ public class Hero {
 
     public void setWeapon(Item weapon) {
         this.weapon = weapon;
+    }
+
+    public List<Item> getEquiped() {
+        return equiped;
+    }
+
+    public void setEquiped(List<Item> equiped) {
+        this.equiped = equiped;
     }
 
     public boolean isTraveling() {
@@ -172,6 +200,20 @@ public class Hero {
         this.travelTime = travelTime;
     }
 
+    public HeroStats getStats() {
+        return stats;
+    }
 
+    public void setStats(HeroStats stats) {
+        this.stats = stats;
+    }
 
+    public List<Item> getInventory() {
+
+        return inventory;
+    }
+
+    public void setInventory(List<Item> inventory) {
+        this.inventory = inventory;
+    }
 }

@@ -1,10 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Inventory</title>
 </head>
 <body>
 <p1>Beans</p1>
+
+<div class="inner inventory" th:fragment="inventory (inventory)">
+
+    <table>
+        <thead>
+        <tr>
+            <td colspan="3">Inventory</td>
+        </tr>
+        <tr>
+            <th> Name </th>
+            <th> Beans </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${inventory.isEmpty()}">
+            <td colspan="2"> Empty </td>
+        </tr>
+        <tr th:each="item : ${inventory}">
+            <td><span th:text="${item.getName()}"> Name </span></td>
+            <td><span th:text="${item.getType()}"> Level </span></td>
+            <td><span th:text="${item.getValue()}"> Value </span></td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
 </body>
 </html>
