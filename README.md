@@ -24,11 +24,11 @@ Alternativley the project can be cloned, then a new project from existing resour
 
 ## Built With
 
-*[Spring](https://spring.io/) - Backend Framework Used
-*[Thymeleaf](https://www.thymeleaf.org/) - Templating engine for Frontend
-*[Maven](https://maven.apache.org/) - Dependency Management
-*[jQUery](https://jquery.com/) - For some front-end solutions
-*[mongoDB](https://www.mongodb.com/) - Database
+* [Spring](https://spring.io/) - Backend Framework Used
+* [Thymeleaf](https://www.thymeleaf.org/) - Templating engine for Frontend
+* [Maven](https://maven.apache.org/) - Dependency Management
+* [jQUery](https://jquery.com/) - For some front-end solutions
+* [mongoDB](https://www.mongodb.com/) - Database
 
 ## Contributing
 Since the project is for learning purpose and still has a long way to go until even early alpha - no contributing wanted
