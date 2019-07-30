@@ -12,15 +12,20 @@ public class HeroTest {
     public void getStrength() {
 
       Hero  wiz =  new WizardHero();
-      wiz.setStats(new HeroStats(99,1,5));
+      wiz.setStats(new HeroStats(99,1,5,90,60));
 
       assertEquals(wiz.getStrength(),99);
       System.out.println(wiz.getStrength());
+
+        System.out.println(wiz.getCurrentHealth()+" current HP");
 
       wiz = new Hero();
 
         System.out.println("Blank str: "+wiz.getStrength());
         assertEquals(wiz.getStrength(),5);
+
+        System.out.println(wiz.getCurrentHealth()+" current HP");
+
 
     }
 

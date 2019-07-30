@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/loginStyle.css}">
 <!--    <div th:replace="template :: scripts"></div>-->
 </head>
 <body>
+<div class="loginComponent">
+    <h1 class="loginHeader">Demo World</h1><br><br><br><br>
 <form action="/login" method="post">
 
-    <h3 th:text="Login"></h3><br/>
+    <h3 th:text="Login"></h3>
     <input type="text" name="username" th:placholder="username"/>
     <br/>
     <input type="password" name="password"/>
@@ -22,6 +25,6 @@
 </form>
 <br>
 No account? <a href="/register">Register!</a>
-
+</div>
 </body>
 </html>

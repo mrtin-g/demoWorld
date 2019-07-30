@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Account</title>
+</head>
+<body>
+<h1>Account Panel</h1>
+
+Your username: <p1 th:text="${user.getUsername()}"></p1><br>
+Your osmium: <p1 th:text="${user.getOsmiumCurrency()}"></p1><br>
+
+<div>
+    <form action="/addEmail" method="post">
+        Email <input type="text" name="id">
+        <button type="submit">Create</button>
+    </form>
+</body>
+</html>

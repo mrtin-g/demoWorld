@@ -9,6 +9,9 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.ArrayList;
 
 @Controller
 public class HeroListViewController {
@@ -27,5 +30,15 @@ public class HeroListViewController {
 
         return "heroesList";
     }
+
+//    @GetMapping("/herolistRest")
+//    public ArrayList<Hero> heroListViewRest(){
+//
+//        User user = userService.getUserRepository().findByUsername("crb");
+//
+//
+//
+//        return user.getHeroes();
+//    }
 
 }

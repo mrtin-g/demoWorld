@@ -19,7 +19,7 @@ public class Hero {
     private int level = 1;
     private long experience = 0;
 
-    private HeroStats stats = new HeroStats(5,5,5);
+    private HeroStats stats = new HeroStats(5,5,5,100,50);
 
     private Item helmet;
     private Item armor;
@@ -36,6 +36,7 @@ public class Hero {
     public Hero() {
         this.inventory = new ArrayList<>();
         this.heroClass = HeroClassTypes.NOHEROSELECTED;
+        this.stats = new HeroStats(0,0,0,0,0);
     }
 
     public String getOwner() {
@@ -215,5 +216,43 @@ public class Hero {
 
     public void setInventory(List<Item> inventory) {
         this.inventory = inventory;
+    }
+
+    public int getMaxHealth(){
+
+        int maxHealth = stats.getMaxHealth();
+
+        if(armor != null)
+            maxHealth += armor.getStrengthBonus();
+        else if (helmet != null)
+            maxHealth += helmet.getStrengthBonus();
+        else if (weapon != null)
+            maxHealth += weapon.getStrengthBonus();
+
+        return maxHealth;
+    }
+
+    public int getCurrentHealth(){
+
+        return stats.getCurrentHealth();
+    }
+
+    public int getMaxResource(){
+
+        int maxResource = stats.getMaxResource();
+
+        if(armor != null)
+            maxResource += armor.getStrengthBonus();
+        else if (helmet != null)
+            maxResource += helmet.getStrengthBonus();
+        else if (weapon != null)
+            maxResource += weapon.getStrengthBonus();
+
+        return maxResource;
+    }
+
+    public int getCurrentResource(){
+
+       return stats.getCurrentResource();
     }
 }

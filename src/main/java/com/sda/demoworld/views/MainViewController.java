@@ -2,6 +2,7 @@ package com.sda.demoworld.views;
 
 import com.sda.demoworld.hero.Hero;
 import com.sda.demoworld.hero.HeroService;
+import com.sda.demoworld.locations.LocationService;
 import com.sda.demoworld.user.User;
 import com.sda.demoworld.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,9 @@ public class MainViewController {
     @Autowired
     private HeroService heroService;
 
+    @Autowired
+    private LocationService locationService;
+
     @GetMapping("/main")
     public String mainView(Model model) {
 
@@ -42,6 +46,7 @@ public class MainViewController {
         model.addAttribute("user", user);
         model.addAttribute("hero", new Hero());
         model.addAttribute("inventory",new Hero().getInventory());
+        model.addAttribute("locations",locationService.getLocationsList());
 
         return "main";
     }
@@ -58,6 +63,7 @@ public class MainViewController {
         model.addAttribute("user", user);
         model.addAttribute("hero", heroService.findHeroById(heroId));
         model.addAttribute("inventory",heroService.findHeroById(heroId).getInventory());
+        model.addAttribute("locations",locationService.getLocationsList());
 
         return "main";
     }

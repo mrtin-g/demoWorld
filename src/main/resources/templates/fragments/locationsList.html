@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:fragment="locationsList (locations)">
+
+    <table>
+        <tr th:each="location : ${locations}">
+            <td><span th:text="${location.getName()}"> Name </span></td>
+            <td><span>
+                <a href="#">Travel</a></span></td>
+<!--                <a th:href="@{'/travel/'+${location.getId()}}">Travel</a></span></td>-->
+        </tr>
+    </table>
+
+</div>
+</body>
+</html>

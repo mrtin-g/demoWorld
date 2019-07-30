@@ -1,0 +1,23 @@
+body{
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color:gold;
+}
+.loginComponent{
+    position: absolute;
+    left: 40%;
+    top: 20%;
+}
+.loginHeader{
+    top: 0%;
+    position: absolute;
+    animation: headerHover 3s infinite;
+    animation-timing-function: ease-in-out;
+}
+@keyframes headerHover {
+    from{top: 1px;}
+    50%{top: 6px;}
+    to{top: 0px;}
+}

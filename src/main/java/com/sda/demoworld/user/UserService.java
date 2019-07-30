@@ -39,4 +39,10 @@ public class UserService {
 
         //TODO do this
     }
+
+    public void setUserEmail(User user){
+
+        //TODO - this
+
+    }
 }

@@ -15,6 +15,7 @@
     </style>
 </head>
 <body>
+<div class="bg-img">
 <th:block th:insert="fragments/head.html :: navBar"></th:block>
 
 <div class="userInfo">
@@ -27,24 +28,29 @@
     <th:block th:include="heroesList.html :: heroList(heroes=${heroes})"></th:block>
 </div>
 <!--<div class="w3-teal">-->
-    <button class="w3-button w3-teal w3-xlarge" onclick="w3_open()" ><p id="heroSelectBtnText">Select Hero</p></button>
+    <button class="w3-button w3-dark-gray w3-xlarge" onclick="w3_open()" ><p id="heroSelectBtnText">Select Hero</p></button>
 <!--</div>-->
-
-<h1>This is main view, logged in</h1>
 
 <div class="singleHeroContainer">
     <th:block th:include="heroSingleView.html :: singleHero (hero = ${hero})"></th:block>
 </div>
 <div class="heroMenuContainer">
     <table>
-        <tr><td class="hMenuBtn"><a href="#">Inventory</a> </td></tr>
-        <tr><td class="hMenuBtn"><a href="#">Reputation</a> </td></tr>
-        <tr><td class="hMenuBtn"><a href="#">Map</a> </td></tr>
+        <tr><td class="hMenuBtn"><a href="#" name="inventory" class="toggleBtn">Inventory</a> </td></tr>
+        <tr><td class="hMenuBtn"><a href="#" name="reputation" class="toggleBtn">Reputation</a> </td></tr>
+        <tr><td class="hMenuBtn"><a href="#" name="map" class="toggleBtn">Map</a> </td></tr>
     </table>
 </div>
-<div class="inventoryContent">
+<div class="toggle" id="inventory">
     <th:block th:include="inventory.html :: inventory (inventory = ${inventory})"></th:block>
 </div>
-
+<div class="toggle" id="reputation">
+ <p>Reputations go here</p>
+</div>
+<div class="toggle" id="map">
+    <p>Map and locations go here</p>
+    <th:block th:include="fragments/locationsList.html :: locationsList (locations = ${locations})"></th:block>
+</div>
+</div>
 </body>
 </html>

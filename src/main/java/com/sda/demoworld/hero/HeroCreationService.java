@@ -27,7 +27,7 @@ public class HeroCreationService {
                 hero = new WizardHero();
                 hero.setName(name);
                 hero.setHeroClass(heroClass);
-                hero.setStats(new HeroStats(3,8,4));
+                hero.setStats(new HeroStats(3,8,4,90,60));
                 hero.getInventory().add(new Item( ItemTypes.WEAPON,"Stick",0,0,0,1,0,0,0));
                 hero.setOwner(user.getUsername());
                 return hero;
@@ -36,7 +36,7 @@ public class HeroCreationService {
                 hero = new RogueHero();
                 hero.setName(name);
                 hero.setHeroClass(HeroClassTypes.ROGUE);
-                hero.setStats(new HeroStats(4,4,7));
+                hero.setStats(new HeroStats(4,4,7,95,55));
                 hero.getInventory().add(new Item( ItemTypes.WEAPON,"Stick",0,0,0,1,0,0,0));
                 hero.setOwner(user.getUsername());
                 return hero;
@@ -45,7 +45,7 @@ public class HeroCreationService {
                 hero = new WarriorHero();
                 hero.setName(name);
                 hero.setHeroClass(HeroClassTypes.WARRIOR);
-                hero.setStats(new HeroStats(7,2,6));
+                hero.setStats(new HeroStats(7,2,6,100,50));
                 hero.getInventory().add(new Item( ItemTypes.WEAPON,"Stick",0,0,0,1,0,0,0));
                 hero.setOwner(user.getUsername());
                 return hero;
@@ -54,7 +54,7 @@ public class HeroCreationService {
                 hero = new SorceressHero();
                 hero.setName(name);
                 hero.setHeroClass(HeroClassTypes.SORCERESS);
-                hero.setStats(new HeroStats(3,7,5));
+                hero.setStats(new HeroStats(3,7,5,90,60));
                 hero.getInventory().add(new Item( ItemTypes.WEAPON,"Stick",0,0,0,1,0,0,0));
                 hero.setOwner(user.getUsername());
                 return hero;

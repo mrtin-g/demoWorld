@@ -10,15 +10,15 @@ public class Item {
     private ItemTypes type;
     private int value;
 
-    private int strengthBonus;
-    private int intellectBonus;
-    private int dexterityBonus;
+    private int strengthBonus = 0;
+    private int intellectBonus = 0;
+    private int dexterityBonus = 0;
 
-    private int attackBonus;
-    private int defenseBonus;
+    private int attackBonus = 0;
+    private int defenseBonus = 0;
 
-    private int healthBonus;
-    private int resourceBonus;
+    private int healthBonus = 0;
+    private int resourceBonus = 0;
 
     public Item(){}
 
